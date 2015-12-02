@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>jQueryの練習</title>
+</head>
+<body>
+	<p>jQueryの練習</p>
+	<button>Add!</button>
+
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('button').click(function() {
+				var p = $('<p>').text('vanish!').addClass('vanish');
+				$(this).before(p);
+			});
+			// .vanish は動的に追加されているので
+			// $('.vanish') は存在していない。
+			$('body').on('click', '.vanish', function() {
+				$(this).remove();
+			});
+		});
+	</script>
+</body>
+</html>
